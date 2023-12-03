@@ -1,1 +1,408 @@
-import steamlit
+import streamlit as st
+from datetime import datetime
+from PIL import Image
+import plotly.graph_objs as go
+import plotly.express as px
+
+def get_time():
+    current_time = datetime.now().time()
+    morning_start = datetime.strptime('06:00:00', '%H:%M:%S').time()
+    afternoon_start = datetime.strptime('12:00:00', '%H:%M:%S').time()
+    evening_start = datetime.strptime('18:00:00', '%H:%M:%S').time()
+
+    if current_time >= morning_start and current_time < afternoon_start:
+        return("Good morning!")
+    elif current_time >= afternoon_start and current_time < evening_start:
+        return("Good afternoon!")
+    else:
+        return("Good evening!")
+
+def company_plot():
+    companies = ["Cotton Goods", "TVS Digital"]
+    months = [3,6]
+    intervals = ["May-Aug 2022", "Jan-Jun 2023"]
+    fig = go.Figure()
+    for i in range(len(companies)):
+        fig.add_trace(go.Bar(
+            y=[companies[i]],
+            x=[months[i]],
+            orientation='h',
+            text=intervals[i], 
+            textposition='inside', 
+            hoverinfo='none',
+            showlegend=False
+        ))
+
+    fig.update_layout(
+        title="Internship Experience",
+        modebar_remove=['lasso', 'select','toimage'],
+        height=500,
+        font=dict(size=20), 
+        yaxis=dict(tickfont=dict(size=20)),
+        title_font=dict(size=20)
+    )
+    return fig
+
+def tools_plot():
+    tools = ["Python", "C/C++", "HTML/CSS/JavaScript/Java", "R", "SQL", "Dart"]
+    projects = [6, 1, 1, 2, 1, 2]
+
+    fig = go.Figure(go.Pie(
+        labels=tools,
+        values=projects,
+        textinfo='label+percent', 
+    ))
+    fig.update_traces(
+        textfont=dict(size=20), 
+        hoverinfo='none'  
+    )
+    fig.update_layout(
+        height=500,
+        title='Experience Based on Projects',
+        title_font=dict(size=20),
+        showlegend=False
+    )
+    return fig
+
+def cgpa_plot():
+    years = ['Y1-S1', 'Y1-S2', 'Y2-S1', 'Y2-S2', 'Y3-S1'] #, 'Y4-S1', 'Y4-S2']
+    courses_taken = [4, 9, 7, 7, 8] 
+    cgpa = [3.67, 4.12, 3.97, 4.06, 4.08]    
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Bar(
+        x=years,
+        y=courses_taken,
+        name='Courses Taken',
+    ))
+
+    fig.add_trace(go.Scatter(
+        x=years,
+        y=cgpa,
+        mode='lines+markers',
+        name='CGPA',
+        yaxis='y2', 
+        line=dict(color='#EF553B', width=2)
+    ))
+
+    fig.update_layout(
+        height=500,
+        title='CGPA Through The Semesters',
+        xaxis=dict(title='Year-Semester',tickfont=dict(size=20)),
+        yaxis=dict(title='Number of Courses Taken'),
+        yaxis2=dict(title='Cumulative GPA', overlaying='y', side='right'),
+        legend=dict(x=0, y=1.1),
+        title_font=dict(size=20)
+    )
+    return fig
+
+def language_plot():
+    languages = ["English", "Bahasa Indonesia", "Chinese", "Korean", "Japanese"]
+    levels = [5, 5, 3, 3, 1]
+
+    fig = go.Figure(go.Bar(
+        x=levels,
+        y=languages,
+        orientation='h'
+    ))
+
+    fig.update_layout(
+        title='Language Proficiency',
+        modebar_remove=['lasso', 'select','toimage'],
+        height=500,
+        xaxis=dict(tickvals=[0, 1, 2, 3, 4, 5], ticktext=["None", "Elementary", "Limited", "Professional", "Full Professional", "Native"]),
+        yaxis=dict(tickfont=dict(size=20)),
+        title_font=dict(size=20)
+    )
+    return fig
+
+def home():
+    st.title(get_time())
+    st.markdown("<h5 style='text-align: left'>I am looking for a data science/data analyst full-time position 🙏</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: left'>Hope to start work in June 2024</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: left'>Since I am a foreigner, I would need an Employment Pass</h5>", unsafe_allow_html=True)
+    st.divider()
+    st.header("Explore my dashboard to get to know me")
+    st.markdown("##### You can navigate using the sidebar and selecting a page to visit", unsafe_allow_html=True)
+    st.plotly_chart(company_plot())
+    st.divider()
+    st.plotly_chart(tools_plot())
+    st.divider()
+    st.plotly_chart(cgpa_plot())
+    st.divider()
+    st.plotly_chart(language_plot())
+    
+
+def work():
+    st.title("Work Experience")
+    st.header("TVS Digital, Singapore")
+    col1, col2 = st.columns([1, 1]) 
+
+    with col1:
+        st.subheader("Product Management Intern")
+        st.markdown("#### Tasks")
+        tasks_list = [
+            "Wrote, managed, present sprint backlogs",
+            "Identify bugs/issues during testing",
+            "Develop user manuals and product configuration documents"
+        ]
+        tasks_markdown = "\n".join([f"- {task}" for task in tasks_list])
+        st.markdown(tasks_markdown)
+
+        st.markdown("#### Tools")
+        tools_list = [
+            "JIRA",
+            "Confluence",
+            "Microsoft Excel"
+        ]
+        tools_markdown = "\n".join([f"- {tool}" for tool in tools_list])
+        st.markdown(tools_markdown)
+    with col2:
+        st.markdown("<h3 style='text-align: right'>Jan-Jun 2023</h3>", unsafe_allow_html=True)
+        st.image('tvs.jpg', use_column_width=True)
+
+    st.divider()
+    
+    st.header("Cotton Goods, Bandung, Indonesia")
+    col1, col2 = st.columns([1, 1]) 
+
+    with col1:
+        st.subheader("Intern")
+        st.markdown("#### Tasks")
+        tasks_list = [
+            "Chat administrator",
+            "Analyzed customers' ratings and comments to form a product improvement plan",
+            "Managed production backlog to identify restocks and slow-moving products"
+        ]
+        tasks_markdown = "\n".join([f"- {task}" for task in tasks_list])
+        st.markdown(tasks_markdown)
+
+        st.markdown("#### Tools")
+        tools_list = [
+            "Microsoft Excel",
+            "Python"
+        ]
+        tools_markdown = "\n".join([f"- {tool}" for tool in tools_list])
+        st.markdown(tools_markdown)
+    with col2:
+        st.markdown("<h3 style='text-align: right'>May-Aug 2022</h3>", unsafe_allow_html=True)
+        st.image('cottongood.jpg', use_column_width=True)
+
+def education():
+    st.title("Education")
+    st.header("Nanyang Technological University, Singapore")
+    st.subheader("Bachelor of Science in Data Science and Artificial Intelligence")
+    st.write("- Direct honours programme")
+    st.write("- Pursuing a Minor in Modern Languages as well")
+    st.write("- Expected graduation: May 2024")
+    st.divider()
+    st.header("Projects")
+    selected_tool = st.selectbox('Select by tool used', ['Python', 'R', 'Dart', 'Others'], index=0)
+    
+    if selected_tool == 'Python':
+        st.subheader("Data Visualization")
+        col1, col2 = st.columns([1, 1]) 
+        with col1:
+            st.markdown("#### 'Depression Around The World'")
+            st.write("- Used Plotly to make interactive visualization through widgets and animations")
+            st.write("- Applied data visualization principles to make effective visualizations")
+            st.markdown("- Watch Video: [Click here](https://youtu.be/0Mc-5_6lgLQ)")
+        with col2:
+            st.image('cz4124.png', use_column_width=True) 
+
+        st.divider()
+
+        st.subheader("Machine Learning")
+        col1, col2 = st.columns([1, 1]) 
+        with col1:
+            st.markdown("#### 'Store Item Demand Forecasting Challenge'")
+            st.write("- Developed a time-series model to forecast 3 months of sales data for each item across 10 stores")
+            st.write("- Achieved a score within the Top 5% by identifying seasonality and trend components and passing them as features to XGBRegressor")
+        with col2:
+            st.image('cz4041.png', use_column_width=True) 
+        
+        st.divider()
+
+        st.subheader("Data Products")
+        col1, col2 = st.columns([1, 1]) 
+        with col1:
+            st.markdown("#### 'Innovative Stock Analysis Tool: Fusing News Sentiment and Technical Indicators'")
+            st.write("- Incorporated API to retrieve stock-related news articles")
+            st.write("- Created a stock movement prediction model by using sentiment polarity scores from news articles as features")
+        with col2:
+            st.image('cz4125.jpg', use_column_width=True) 
+
+        st.divider()
+
+        st.subheader("Neural Networks and Deep Learning")
+        col1, col2 = st.columns([1, 1]) 
+        with col1:
+            st.markdown("#### 'State-of-the-Art Model for Material Recognition'")
+            st.write("- Utilized InceptionV3 and Xception models from Keras deep learning library to build a material recongition model")
+            st.write("- Implemented transfer learning, data augmentation, and fine-tuning techniques")
+        with col2:
+            st.image('cz4042.png', use_column_width=True) 
+
+        st.divider()
+
+        st.subheader("Simulation Techniques in Finance")
+        col1, col2 = st.columns([1, 1]) 
+        with col1:
+            st.markdown("#### 'Product Analysis on Swiss Market Index'")
+            st.write("- Identified potential risks and opportunities in the Swiss Market Index, assisting in portfolio management decisions")
+            st.write("- Performed analysis using 'Black Scholes' and 'Heston' models, while applying variance reduction techniques and parameter calibration to enhance accuracy")
+        with col2:
+            st.image('mh4518.png', use_column_width=True) 
+        
+        st.divider()
+
+        st.subheader("Introduction to Data Science")
+        col1, col2 = st.columns([1, 1]) 
+        with col1:
+            st.markdown("#### 'IBM HR Analytics Employee Attrition & Performance'")
+            st.write("- Performed data cleaning and exploratory data analysis to predict possible reasons for employee attrition")
+            st.write("- Developed and fine-tuned a random forest model with GridSearchCV, achieving a high accuracy of 95% and 90% on train and test datasets, respectively")
+        with col2:
+            st.image('cz1016.png', use_column_width=True)
+
+    elif selected_tool == 'R':
+        st.subheader("Regression Analysis")
+        col1, col2 = st.columns([1, 1]) 
+        with col1:
+            st.markdown("#### 'Traffic Monitoring - Multiple Linear Regression Problem'")
+            st.write("Employed techniques to check adequecy of full model (normality, time effects, non-constant variance, etc.) and find a reduced model by conducting a series of F and ANOVA tests")
+        with col2:
+            st.image('mh3510.png', use_column_width=True) 
+
+        st.divider()
+
+        st.subheader("Data Analysis with Computer")
+        col1, col2 = st.columns([1, 1]) 
+        with col1:
+            st.markdown("#### 'Business Analysis and Proposal for Superstore'")
+            st.write("Employed various statistical methods, including transformations, t-tests and ANOVA tests, to identify potential solutions for improving the financial performance of a Superstore (Kaggle dataset)")
+        with col2:
+            st.image('mh3511.png', use_column_width=True) 
+
+    elif selected_tool == 'Dart':
+        st.subheader("Final Year Project")
+        col1, col2 = st.columns([1, 1]) 
+        with col1:
+            st.markdown("#### 'Smartphone-based memory game using physical gestures'")
+            st.write("- **WORK IN PROGRESS**")
+            st.write("- Developing an engaging memory game application that incorporates efficient hand gesture recognition technology using Flutter and Media Pipe libraries")
+        with col2:
+            st.image('fyp.jpg', use_column_width=True) 
+
+        st.divider()
+
+        st.subheader("Software Engineering")
+        col1, col2 = st.columns([1, 1]) 
+        with col1:
+            st.markdown("#### 'Software Application for Building the Smart Nation'")
+            st.write("- **SmartRide** enables customers to efficiently compare prices and durations across various travel methods in Singapore.")
+            st.write("- Developed an Android application using Flutter Dart, taking charge of both frontend and backend development.") 
+            st.write("- Implemented essential features such as integration with Firebase and Google Maps API")
+            st.markdown("- Watch Video: [Click here](https://youtu.be/2eASCKv2QmM)")
+        with col2:
+            st.image("cz2006.png", use_column_width=True)
+    else:
+        st.markdown("### SQL")
+        st.subheader("Introduction to Databases")
+        st.write("- Creating an ER diagram ensuring correct identification of entity sets, relationships, weak entities, subclasses, etc.")
+        st.write("- Converting ER diagram into relational schema while specifying the keys, primary key and functional dependencies of each relation")
+        st.write("- Implementing database schema using SQL DDL commands")
+
+        st.divider()
+
+        st.markdown("### C/C++")
+        st.subheader("Algorithm Design and Analysis")
+        st.write("- Integrated InsertionSort and MergeSort algorithms and compared its performance with original MergeSort")
+        st.write("- Compared efficiency of Dijkstra's algorithm when the input graph is stored in an adjacency matrix and when it is stored in an array of adjacency list")
+        st.write("- Developed a dynamic programming algorithm to compute maximum profit of a knapsack problem")
+        
+        st.divider()
+
+        st.markdown("### HTML/CSS/JavaScript/Java")
+        st.subheader("Coursera Specialization by Duke University")
+        st.write("- Built a green screen and different colored filters")
+        st.write("- Implemented Caesar and Vigenere Ciphers")
+        st.write("- Created a WordGram and Word N-Grams using Markov Model concept")
+        st.write("- Developed a Movie Recommendation System")
+        st.markdown("- Verify Certificate: [Click here](coursera.org/verify/specialization/63V8YM3AZAFF)")
+
+def get_streak():
+    start_date = datetime(2023, 12, 3)
+    today = datetime.now()
+    days_passed = (today - start_date).days
+    streak = 171
+    streak_today = 171+days_passed
+    return streak_today
+
+def hobby():
+    st.title("Hobbies")
+    st.subheader("Learning New Languages")
+    col1, col2 = st.columns([1, 1]) 
+    with col1:
+            st.write("- Fluent in English and Bahasa Indonesia")
+            st.write("- Studied Chinese from Primary to Junior College where I took Cambridge AS Level Chinese")
+            st.write("- Studying Korean in NTU. Able to watch K-Dramas without subtitles 😂")
+            st.write(f"- Studying Japanese with Duolingo, 🔥{get_streak()}")
+            st.write("- Took Thai Level 1 in Year 2 Semester 1")
+            st.write("- Goal is to learn sign language and braille")
+    with col2:
+            st.image('language.jpg', use_column_width=True, caption='Me and my boyfriend with our Korean teacher') 
+
+    st.divider()
+
+    st.subheader("Crocheting and Puzzles")
+    col1, col2 = st.columns([1, 1]) 
+    with col1:
+            st.write("- Started crocheting in April 2023. So far I made: a turtle coaster, a cute clam, and a cat that looks like a pig😭")
+            st.write("- Enjoy building nano-blocks (they are smaller than LEGO blocks)")
+            st.write("- Since I was a child, I love puzzles. I enjoy building a 2000-piece puzzle and destroying it to rebuild it again 😝")
+    with col2:
+            st.image('crochet.jpg', use_column_width=True, caption="My turtle coaster") 
+
+    st.divider()
+
+    st.subheader("Food Blogging")
+    col1, col2 = st.columns([1, 1]) 
+    with col1:
+            st.write("- I love eating and I can eat a lot")
+            st.markdown("- I started an Instagram food blog in April 2023: [Click here to visit my profile](https://instagram.com/heaven_a_foodcoma?igshid=NGVhN2U2NjQ0Yg==)")
+            st.write("- My favorite place for mala xiang guo is at JEM's Koufu")
+            st.write("- Best places for waffle is DOPA or Ree and Mummy")
+            st.write("- No, this is not sponsored 🤭")
+    with col2:
+            st.image('waffle.jpg', use_column_width=True, caption="Ree and Mummy at Katong V") 
+
+def main(): 
+    st.sidebar.image('me_1.jpg', use_column_width=True)
+
+    st.sidebar.markdown("<h1 style='text-align: center'>Angelin Grace Wijaya</h1>", unsafe_allow_html=True)
+    st.sidebar.markdown("<p style='text-align: center'>A senior in Nanyang Technological University, pursuing a Bachelor's Degree in Data Science & Artificial Intelligence with a Minor in Modern Languages.</p>", unsafe_allow_html=True)
+
+    st.sidebar.markdown("""
+    <div style="display: flex; justify-content: center;">
+        <a href='mailto:ang@example.com'><img src='https://img.icons8.com/color/48/000000/new-post.png' width='30' style='margin-right: 20px;'></a>
+        <a href='http://www.linkedin.com/in/username'><img src='https://img.icons8.com/color/48/000000/linkedin.png' width='30'></a>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.sidebar.divider()
+    st.sidebar.title("Navigate")
+    selected_section = st.sidebar.selectbox('Select Page', ['Home', 'Work Experience', 'Education', 'Hobbies'], index=0)
+
+    if selected_section == 'Home':
+        home()
+    elif selected_section == 'Work Experience':
+        work()
+    elif selected_section == 'Education':
+        education()
+    elif selected_section == 'Hobbies':
+        hobby()
+
+if __name__ == '__main__':
+    main()
