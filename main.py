@@ -4,19 +4,6 @@ from PIL import Image
 import plotly.graph_objs as go
 import plotly.express as px
 
-def get_time():
-    current_time = datetime.now().time()
-    morning_start = datetime.strptime('06:00:00', '%H:%M:%S').time()
-    afternoon_start = datetime.strptime('12:00:00', '%H:%M:%S').time()
-    evening_start = datetime.strptime('18:00:00', '%H:%M:%S').time()
-
-    if current_time >= morning_start and current_time < afternoon_start:
-        return("Good morning!")
-    elif current_time >= afternoon_start and current_time < evening_start:
-        return("Good afternoon!")
-    else:
-        return("Good evening!")
-
 def company_plot():
     companies = ["Cotton Goods", "TVS Digital"]
     months = [3,6]
@@ -118,7 +105,7 @@ def language_plot():
     return fig
 
 def home():
-    st.title(get_time())
+    st.title("Greetings!")
     st.markdown("<h5 style='text-align: left'>I am looking for a full-time role in data science or as a data analyst 🙏, aiming to commence work by June 2024. As I'm from another country, I will require an Employment Pass to join the team.</h5>", unsafe_allow_html=True)
     st.divider()
     st.header("Explore my dashboard to get to know me")
