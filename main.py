@@ -119,9 +119,7 @@ def language_plot():
 
 def home():
     st.title(get_time())
-    st.markdown("<h5 style='text-align: left'>I am looking for a data science/data analyst full-time position 🙏</h5>", unsafe_allow_html=True)
-    st.markdown("<h5 style='text-align: left'>Hope to start work in June 2024</h5>", unsafe_allow_html=True)
-    st.markdown("<h5 style='text-align: left'>Since I am a foreigner, I would need an Employment Pass</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: left'>I am looking for a full-time role in data science or as a data analyst 🙏, aiming to commence work by June 2024. As I'm from another country, I will require an Employment Pass to join the team.</h5>", unsafe_allow_html=True)
     st.divider()
     st.header("Explore my dashboard to get to know me")
     st.markdown("##### You can navigate using the sidebar and selecting a page to visit", unsafe_allow_html=True)
