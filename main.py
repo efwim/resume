@@ -390,4 +390,5 @@ def main():
         hobby()
 
 if __name__ == '__main__':
+    st.set_page_config(layout="wide", initial_sidebar_state="expanded", zoom=0.7)
     main()
