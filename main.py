@@ -23,7 +23,7 @@ def company_plot():
 
     fig.update_layout(
         title="Internship Experience",
-        modebar_remove=['lasso', 'select','toimage'],
+        mmodebar_remove=['lasso', 'select','toimage', 'pan'],
         height=500,
         font=dict(size=20), 
         yaxis=dict(tickfont=dict(size=20)),
@@ -77,6 +77,7 @@ def cgpa_plot():
     fig.update_layout(
         height=500,
         title='CGPA Through The Semesters',
+        modebar_remove=['lasso', 'select','toimage', 'pan'],
         xaxis=dict(title='Year-Semester',tickfont=dict(size=20)),
         yaxis=dict(title='Number of Courses Taken'),
         yaxis2=dict(title='Cumulative GPA', overlaying='y', side='right'),
@@ -97,7 +98,7 @@ def language_plot():
 
     fig.update_layout(
         title='Language Proficiency',
-        modebar_remove=['lasso', 'select','toimage'],
+        modebar_remove=['lasso', 'select','toimage', 'pan'],
         height=500,
         xaxis=dict(tickvals=[0, 1, 2, 3, 4, 5], ticktext=["None", "Elementary", "Limited", "Professional", "Full Professional", "Native"]),
         yaxis=dict(tickfont=dict(size=20)),
@@ -120,6 +121,7 @@ def mbti_plot():
     fig.update_traces(textfont=dict(size=15))
     fig.update_layout(
         title='My MBTI is Logistician ISTJ-T',
+        modebar_remove=['lasso', 'select','toimage', 'pan'],
         title_font=dict(size=20),
         hovermode=False, 
         xaxis_visible=False, 
