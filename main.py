@@ -386,7 +386,7 @@ def hobby():
             st.image('image/waffle.jpg', use_column_width=True, caption="Ree and Mummy at Katong V") 
 
 def main(): 
-    st.sidebar.image('image/me_1.jpg', use_column_width=True)
+    st.sidebar.image('image/me.jpg', use_column_width=True)
 
     st.sidebar.markdown("<h1 style='text-align: center'>Angelin Grace Wijaya</h1>", unsafe_allow_html=True)
     st.sidebar.markdown("<p style='text-align: center'>A senior in Nanyang Technological University, pursuing a Bachelor's Degree in Data Science & Artificial Intelligence with a Minor in Modern Languages.</p>", unsafe_allow_html=True)
