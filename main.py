@@ -3,6 +3,7 @@ from datetime import datetime
 from PIL import Image
 import plotly.graph_objs as go
 import plotly.express as px
+import pandas as pd
 
 def company_plot():
     companies = ["Cotton Goods", "TVS Digital"]
@@ -104,12 +105,35 @@ def language_plot():
     )
     return fig
 
+def mbti_plot():
+    data = {
+        'Category': ['Energy', 'Energy', 'Mind', 'Mind', 'Nature', 'Nature', 'Tactics', 'Tactics', 'Identity', 'Identity'],
+        'Subcategory': ['Extraverted', 'Introverted', 'Intuitive', 'Observant', 'Thinking', 'Feeling', 'Judging', 'Prospecting', 'Assertive', 'Turbulent'],
+        'Values': ['28%', '72%', '17%', '83%', '65%', '35%', '99%', '1%', '42%', '58%']
+    }
+
+    df = pd.DataFrame(data)
+    df['Text'] = df['Subcategory'] + '  ' + df['Values']
+    category_order = ['Energy', 'Mind', 'Nature', 'Tactics', 'Identity']
+
+    fig = px.bar(df, x="Values", y="Category", color="Subcategory", orientation='h', text='Text', category_orders={"Category": category_order})
+    fig.update_traces(textfont=dict(size=15))
+    fig.update_layout(
+        title='My MBTI is Logistician ISTJ-T',
+        title_font=dict(size=20),
+        hovermode=False, 
+        xaxis_visible=False, 
+        yaxis_visible=False, 
+        showlegend=False,)
+    return fig
+
+
 def home():
     st.title("Greetings!")
     st.markdown("<h5 style='text-align: left'>I am looking for a full-time role in data science or as a data analyst 🙏, aiming to commence work by June 2024. As I'm from another country, I will require an Employment Pass to join the team.</h5>", unsafe_allow_html=True)
     st.divider()
     st.header("Explore my dashboard to get to know me")
-    st.markdown("##### You can navigate using the sidebar and selecting a page to visit", unsafe_allow_html=True)
+    st.markdown("##### (You can navigate through pages in the sidebar)", unsafe_allow_html=True)
     st.plotly_chart(company_plot())
     st.divider()
     st.plotly_chart(tools_plot())
@@ -117,6 +141,8 @@ def home():
     st.plotly_chart(cgpa_plot())
     st.divider()
     st.plotly_chart(language_plot())
+    st.divider()
+    st.plotly_chart(mbti_plot())
     
 
 def work():
@@ -145,7 +171,7 @@ def work():
         st.markdown(tools_markdown)
     with col2:
         st.markdown("<h3 style='text-align: right'>Jan-Jun 2023</h3>", unsafe_allow_html=True)
-        st.image('tvs.jpg', use_column_width=True)
+        st.image('image/tvs.jpg', use_column_width=True)
 
     st.divider()
     
@@ -172,7 +198,7 @@ def work():
         st.markdown(tools_markdown)
     with col2:
         st.markdown("<h3 style='text-align: right'>May-Aug 2022</h3>", unsafe_allow_html=True)
-        st.image('cottongood.jpg', use_column_width=True)
+        st.image('image/cottongood.jpg', use_column_width=True)
 
 def education():
     st.title("Education")
@@ -194,7 +220,7 @@ def education():
             st.write("- Applied data visualization principles to make effective visualizations")
             st.markdown("- Watch Video: [Click here](https://youtu.be/0Mc-5_6lgLQ)")
         with col2:
-            st.image('cz4124.png', use_column_width=True) 
+            st.image('image/cz4124.png', use_column_width=True) 
 
         st.divider()
 
@@ -205,7 +231,7 @@ def education():
             st.write("- Developed a time-series model to forecast 3 months of sales data for each item across 10 stores")
             st.write("- Achieved a score within the Top 5% by identifying seasonality and trend components and passing them as features to XGBRegressor")
         with col2:
-            st.image('cz4041.png', use_column_width=True) 
+            st.image('image/cz4041.png', use_column_width=True) 
         
         st.divider()
 
@@ -216,7 +242,7 @@ def education():
             st.write("- Incorporated API to retrieve stock-related news articles")
             st.write("- Created a stock movement prediction model by using sentiment polarity scores from news articles as features")
         with col2:
-            st.image('cz4125.jpg', use_column_width=True) 
+            st.image('image/cz4125.jpg', use_column_width=True) 
 
         st.divider()
 
@@ -227,7 +253,7 @@ def education():
             st.write("- Utilized InceptionV3 and Xception models from Keras deep learning library to build a material recongition model")
             st.write("- Implemented transfer learning, data augmentation, and fine-tuning techniques")
         with col2:
-            st.image('cz4042.png', use_column_width=True) 
+            st.image('image/cz4042.png', use_column_width=True) 
 
         st.divider()
 
@@ -238,7 +264,7 @@ def education():
             st.write("- Identified potential risks and opportunities in the Swiss Market Index, assisting in portfolio management decisions")
             st.write("- Performed analysis using 'Black Scholes' and 'Heston' models, while applying variance reduction techniques and parameter calibration to enhance accuracy")
         with col2:
-            st.image('mh4518.png', use_column_width=True) 
+            st.image('image/mh4518.png', use_column_width=True) 
         
         st.divider()
 
@@ -249,26 +275,19 @@ def education():
             st.write("- Performed data cleaning and exploratory data analysis to predict possible reasons for employee attrition")
             st.write("- Developed and fine-tuned a random forest model with GridSearchCV, achieving a high accuracy of 95% and 90% on train and test datasets, respectively")
         with col2:
-            st.image('cz1016.png', use_column_width=True)
+            st.image('image/cz1016.png', use_column_width=True)
 
     elif selected_tool == 'R':
         st.subheader("Regression Analysis")
-        col1, col2 = st.columns([1, 1]) 
-        with col1:
-            st.markdown("#### 'Traffic Monitoring - Multiple Linear Regression Problem'")
-            st.write("Employed techniques to check adequecy of full model (normality, time effects, non-constant variance, etc.) and find a reduced model by conducting a series of F and ANOVA tests")
-        with col2:
-            st.image('mh3510.png', use_column_width=True) 
-
+        st.markdown("#### 'Traffic Monitoring - Multiple Linear Regression Problem'")
+        st.write("Given a multiple linear regression problem, employed techniques to check adequecy of full model and come up with a reduced model:")
+        st.write("- Conducted t tests, F tests, R-Squared statistic, ANOVA tests")
+        st.write("- Performed normality checks, check for time effects, check for sequential dependence and non-constant variance of residuals")
         st.divider()
-
         st.subheader("Data Analysis with Computer")
-        col1, col2 = st.columns([1, 1]) 
-        with col1:
-            st.markdown("#### 'Business Analysis and Proposal for Superstore'")
-            st.write("Employed various statistical methods, including transformations, t-tests and ANOVA tests, to identify potential solutions for improving the financial performance of a Superstore (Kaggle dataset)")
-        with col2:
-            st.image('mh3511.png', use_column_width=True) 
+        st.markdown("#### 'Business Analysis and Proposal for Superstore'")
+        st.write("The objective of the problem is to identify posible solutions for improving the financial performance of a Superstore (from a Kaggle dataset)")
+        st.write("- Conducted data cleaning, variable transformation, t-tests and ANOVA tests")
 
     elif selected_tool == 'Dart':
         st.subheader("Final Year Project")
@@ -278,7 +297,7 @@ def education():
             st.write("- **WORK IN PROGRESS**")
             st.write("- Developing an engaging memory game application that incorporates efficient hand gesture recognition technology using Flutter and Media Pipe libraries")
         with col2:
-            st.image('fyp.jpg', use_column_width=True) 
+            st.image('image/fyp.jpg', use_column_width=True) 
 
         st.divider()
 
@@ -289,9 +308,12 @@ def education():
             st.write("- **SmartRide** enables customers to efficiently compare prices and durations across various travel methods in Singapore.")
             st.write("- Developed an Android application using Flutter Dart, taking charge of both frontend and backend development.") 
             st.write("- Implemented essential features such as integration with Firebase and Google Maps API")
+            st.write("- For **TAXI**, I obtained the driving distance from Google Maps and multiplied it by the distance and time-based unit fare obtained from LTA, added by the flag-down fare")
+            st.write("- For **PUBLIC TRANSPORT**, I obtained the direction from Google Maps. Direction could be segregated into categories: only bus, only MRT, both bus and MRT. For each category, I created different functions and calculated based on the unit fare provided by LTA")
+            st.write(" - I used Firebase for sign up, login, reset password, forget password features")
             st.markdown("- Watch Video: [Click here](https://youtu.be/2eASCKv2QmM)")
         with col2:
-            st.image("cz2006.png", use_column_width=True)
+            st.image("image/cz2006.png", use_column_width=True)
     else:
         st.markdown("### SQL")
         st.subheader("Introduction to Databases")
@@ -337,7 +359,7 @@ def hobby():
             st.write("- Took Thai Level 1 in Year 2 Semester 1")
             st.write("- Goal is to learn sign language and braille")
     with col2:
-            st.image('language.jpg', use_column_width=True, caption='Me and my boyfriend with our Korean teacher') 
+            st.image('image/language.jpg', use_column_width=True, caption='Me and my boyfriend with our Korean teacher') 
 
     st.divider()
 
@@ -348,7 +370,7 @@ def hobby():
             st.write("- Enjoy building nano-blocks (they are smaller than LEGO blocks)")
             st.write("- Since I was a child, I love puzzles. I enjoy building a 2000-piece puzzle and destroying it to rebuild it again 😝")
     with col2:
-            st.image('crochet.jpg', use_column_width=True, caption="My turtle coaster") 
+            st.image('image/crochet.jpg', use_column_width=True, caption="My turtle coaster") 
 
     st.divider()
 
@@ -361,10 +383,10 @@ def hobby():
             st.write("- Best places for waffle is DOPA or Ree and Mummy")
             st.write("- No, this is not sponsored 🤭")
     with col2:
-            st.image('waffle.jpg', use_column_width=True, caption="Ree and Mummy at Katong V") 
+            st.image('image/waffle.jpg', use_column_width=True, caption="Ree and Mummy at Katong V") 
 
 def main(): 
-    st.sidebar.image('me_1.jpg', use_column_width=True)
+    st.sidebar.image('image/me_1.jpg', use_column_width=True)
 
     st.sidebar.markdown("<h1 style='text-align: center'>Angelin Grace Wijaya</h1>", unsafe_allow_html=True)
     st.sidebar.markdown("<p style='text-align: center'>A senior in Nanyang Technological University, pursuing a Bachelor's Degree in Data Science & Artificial Intelligence with a Minor in Modern Languages.</p>", unsafe_allow_html=True)
