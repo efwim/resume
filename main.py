@@ -23,7 +23,7 @@ def company_plot():
 
     fig.update_layout(
         title="Internship Experience",
-        mmodebar_remove=['lasso', 'select','toimage', 'pan'],
+        mmodebar_remove=['lasso', 'select','toimage'],
         height=500,
         font=dict(size=20), 
         yaxis=dict(tickfont=dict(size=20)),
