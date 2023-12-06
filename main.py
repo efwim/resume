@@ -395,8 +395,8 @@ def main():
 
     st.sidebar.markdown("""
     <div style="display: flex; justify-content: center;">
-        <a href='mailto:ang@example.com'><img src='https://img.icons8.com/color/48/000000/new-post.png' width='30' style='margin-right: 20px;'></a>
-        <a href='http://www.linkedin.com/in/username'><img src='https://img.icons8.com/color/48/000000/linkedin.png' width='30'></a>
+        <a href='mailto:angelingracewijaya@gmail.com'><img src='https://img.icons8.com/color/48/000000/new-post.png' width='30' style='margin-right: 20px;'></a>
+        <a href='http://www.linkedin.com/in/angelin-wijaya-4870a2220'><img src='https://img.icons8.com/color/48/000000/linkedin.png' width='30'></a>
     </div>
     """, unsafe_allow_html=True)
 
