@@ -53,9 +53,9 @@ def tools_plot():
     return fig
 
 def cgpa_plot():
-    years = ['Y1-S1', 'Y1-S2', 'Y2-S1', 'Y2-S2', 'Y3-S1'] #, 'Y4-S1', 'Y4-S2']
-    courses_taken = [4, 9, 7, 7, 8] 
-    cgpa = [3.67, 4.12, 3.97, 4.06, 4.08]    
+    years = ['Y1-S1', 'Y1-S2', 'Y2-S1', 'Y2-S2', 'Y3-S1', 'Y4-S1'] #, 'Y4-S2']
+    courses_taken = [4, 9, 7, 7, 8, 6] 
+    cgpa = [3.67, 4.12, 3.97, 4.06, 4.08, 4.14]    
 
     fig = go.Figure()
 
