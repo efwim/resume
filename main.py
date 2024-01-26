@@ -132,7 +132,7 @@ def mbti_plot():
 
 def home():
     st.title("Greetings!")
-    st.markdown("<h5 style='text-align: left'>I am looking for a full-time role in data science or as a data analyst 🙏, aiming to commence work by June 2024. As I'm from another country, I will require an Employment Pass to join the team.</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: left'>I am looking for a full-time role in data science or as a data analyst 🙏, aiming to commence work by July 2024. As I'm from another country, I will require an Employment Pass to join the team.</h5>", unsafe_allow_html=True)
     st.divider()
     st.header("Explore my dashboard to get to know me")
     st.markdown("##### (You can navigate through pages in the sidebar)", unsafe_allow_html=True)
@@ -358,7 +358,7 @@ def hobby():
             st.write("- Studied Chinese from Primary to Junior College where I took Cambridge AS Level Chinese")
             st.write("- Studying Korean in NTU. Able to watch K-Dramas without subtitles 😂")
             st.write(f"- Studying Japanese with Duolingo, 🔥{get_streak()}")
-            st.write("- Took Thai Level 1 in Year 2 Semester 1")
+            st.write("- Took Thai Level 1 in Year 2 Semester 1 and got an \"A\"")
             st.write("- Goal is to learn sign language and braille")
     with col2:
             st.image('image/language.jpg', use_column_width=True, caption='Me and my boyfriend with our Korean teacher') 
@@ -370,7 +370,7 @@ def hobby():
     with col1:
             st.write("- Started crocheting in April 2023. So far I made: a turtle coaster, a cute clam, and a cat that looks like a pig😭")
             st.write("- Enjoy building nano-blocks (they are smaller than LEGO blocks)")
-            st.write("- Since I was a child, I love puzzles. I enjoy building a 2000-piece puzzle and destroying it to rebuild it again 😝")
+            st.write("- I love puzzles, especially completing a 2000-piece puzzle and destroying it to rebuild it again 😝")
     with col2:
             st.image('image/crochet.jpg', use_column_width=True, caption="My turtle coaster") 
 
@@ -381,7 +381,7 @@ def hobby():
     with col1:
             st.write("- I love eating and I can eat a lot")
             st.markdown("- I started an Instagram food blog in April 2023: [Click here to visit my profile](https://instagram.com/heaven_a_foodcoma?igshid=NGVhN2U2NjQ0Yg==)")
-            st.write("- My favorite place for mala xiang guo is at JEM's Koufu")
+            st.write("- My favorite place for mala xiang guo is at JEM's Kopitiam")
             st.write("- Best places for waffle is DOPA or Ree and Mummy")
             st.write("- No, this is not sponsored 🤭")
     with col2:
