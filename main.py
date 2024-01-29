@@ -355,8 +355,8 @@ def hobby():
     col1, col2 = st.columns([1, 1]) 
     with col1:
             st.write("- Fluent in English and Bahasa Indonesia")
-            st.write("- Studied Chinese from Primary to Junior College where I took Cambridge AS Level Chinese")
-            st.write("- Studying Korean in NTU. Able to watch K-Dramas without subtitles 😂")
+            st.write("- Studied Chinese from Primary to Junior College where I achieved an A in Cambridge AS Level Chinese")
+            st.write("- Studying Korean as an elective in NTU. Achieved an A+ from Level 1 to 3. This semester I am studying Level 4")
             st.write(f"- Studying Japanese with Duolingo, 🔥{get_streak()}")
             st.write("- Took Thai Level 1 in Year 2 Semester 1 and got an \"A\"")
             st.write("- Goal is to learn sign language and braille")
@@ -368,9 +368,9 @@ def hobby():
     st.subheader("Crocheting and Puzzles")
     col1, col2 = st.columns([1, 1]) 
     with col1:
-            st.write("- Started crocheting in April 2023. So far I made: a turtle coaster, a cute clam, and a cat that looks like a pig😭")
-            st.write("- Enjoy building nano-blocks (they are smaller than LEGO blocks)")
-            st.write("- I love puzzles, especially completing a 2000-piece puzzle and destroying it to rebuild it again 😝")
+            st.write("- Started crocheting in April 2023. So far I made: a turtle coaster, a clam, and a pink cat that looks like a pig😭")
+            st.write("- Frequently watch Kdramas, KVariety shows and anime")
+            st.write("- Enjoy building nano-block figures and puzzles, especially completing a 2000-piece puzzle and destroying it to rebuild it again 😝")
     with col2:
             st.image('image/crochet.jpg', use_column_width=True, caption="My turtle coaster") 
 
@@ -380,9 +380,10 @@ def hobby():
     col1, col2 = st.columns([1, 1]) 
     with col1:
             st.write("- I love eating and I can eat a lot")
+            st.write("- The worst thing to lose in life is to lose your ability to taste")
             st.markdown("- I started an Instagram food blog in April 2023: [Click here to visit my profile](https://instagram.com/heaven_a_foodcoma?igshid=NGVhN2U2NjQ0Yg==)")
             st.write("- My favorite place for mala xiang guo is at JEM's Kopitiam")
-            st.write("- Best places for waffle is DOPA or Ree and Mummy")
+            st.write("- Best places for waffles is DOPA (soft waffle) or Ree and Mummy (crispy waffle)")
             st.write("- No, this is not sponsored 🤭")
     with col2:
             st.image('image/waffle.jpg', use_column_width=True, caption="Ree and Mummy at Katong V") 
