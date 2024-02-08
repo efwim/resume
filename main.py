@@ -188,9 +188,9 @@ def work():
         st.subheader("Project Management Intern")
         st.markdown("#### Accomplishment")
         tasks_list = [
-            "Successfully addressed customers' concerns as the administrator of Shopee and Tokopedia shops, resulting in a significant improvement in chat performance from 70% to 91%.",
-            "Strategically constructed a production backlog, effectively categorizing and managing restocks and slow-moving products, optimizing inventory management and sales performance by 30%.",
-            "Utilized customer ratings and comments to conduct thorough analysis and formulated an improvement plan, resulting in enhanced product quality and customer satisfaction from average of 3.5 to 4.8 stars."
+            "Enhanced Shopee and Tokopedia shop chat performance from 70% to 91% by addressing customer concerns effectively.",
+            "Optimized inventory management and sales performance by 30% through strategic construction of production backlog for restocks and slow-moving products.",
+            "Improved product quality and customer satisfaction from an average rating of 3.5 to 4.8 stars by analyzing customer ratings and comments and implementing improvement plans."
         ]
         tasks_markdown = "\n".join([f"- {task}" for task in tasks_list])
         st.markdown(tasks_markdown)
