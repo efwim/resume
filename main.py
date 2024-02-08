@@ -215,7 +215,7 @@ def education():
     st.write("- Skills:  Machine Learning,  Deep Learning,  Data Visualization,  Data Wrangling,  Statistical Analysis,  Data Scraping,  Data Querying,  Software Development,  Languages")
     st.divider()
     st.header("Projects")
-    selected_tool = st.selectbox('Select by tool used', ['Python', 'R', 'Dart', 'Others'], index=0)
+    selected_tool = st.selectbox('Filter projects by tool used', ['Python', 'R', 'Dart', 'Others'], index=0)
     
     if selected_tool == 'Python':
         st.subheader("Data Visualization")
