@@ -132,10 +132,12 @@ def mbti_plot():
 
 def home():
     st.title("Greetings!")
-    st.markdown("<h5 style='text-align: left'>I am looking for a full-time role in data science or as a data analyst 🙏, aiming to commence work by July 2024. As I'm from another country, I will require an Employment Pass to join the team.</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: left'>🎓 Expected to graduate in May 2024.</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: left'>💼 Seeking a full-time position in data science or as a data analyst, with a desired start date by July 2024.</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: left'>🪪 As an international candidate, I will require an Employment Pass to join the team.</h5>", unsafe_allow_html=True)
     st.divider()
     st.header("Explore my dashboard to get to know me")
-    st.markdown("##### (You can navigate through pages in the sidebar)", unsafe_allow_html=True)
+    st.markdown("##### Navigate through the pages using the sidebar", unsafe_allow_html=True)
     st.plotly_chart(company_plot())
     st.divider()
     st.plotly_chart(tools_plot())
@@ -154,11 +156,11 @@ def work():
 
     with col1:
         st.subheader("Product Management Intern")
-        st.markdown("#### Tasks")
+        st.markdown("#### Accomplishment")
         tasks_list = [
-            "Wrote, managed, present sprint backlogs",
-            "Identify bugs/issues during testing",
-            "Develop user manuals and product configuration documents"
+            "Managed more than 500 backlogs, driving the successful completion of 3 Functional Acceptance Tests (FAT) and 2 User Acceptance Tests (UAT).",
+            "Performed meticulous manual testing, documenting, and resolving over 200 bugs or issues, while maintaining a well-organized database of over 300 test cases.",
+            "Developed user manuals for clients and comprehensive product configuration documents for the team, improving efficiency of customizing clients’ applications by 85%."
         ]
         tasks_markdown = "\n".join([f"- {task}" for task in tasks_list])
         st.markdown(tasks_markdown)
@@ -167,7 +169,8 @@ def work():
         tools_list = [
             "JIRA",
             "Confluence",
-            "Microsoft Excel"
+            "Microsoft Excel",
+            "Microsoft Powerpoint"
         ]
         tools_markdown = "\n".join([f"- {tool}" for tool in tools_list])
         st.markdown(tools_markdown)
@@ -181,12 +184,12 @@ def work():
     col1, col2 = st.columns([1, 1]) 
 
     with col1:
-        st.subheader("Intern")
-        st.markdown("#### Tasks")
+        st.subheader("Project Management Intern")
+        st.markdown("#### Accomplishment")
         tasks_list = [
-            "Chat administrator",
-            "Analyzed customers' ratings and comments to form a product improvement plan",
-            "Managed production backlog to identify restocks and slow-moving products"
+            "Successfully addressed customers' concerns as the administrator of Shopee and Tokopedia shops, resulting in a significant improvement in chat performance from 70% to 91%.",
+            "Strategically constructed a production backlog, effectively categorizing and managing restocks and slow-moving products, optimizing inventory management and sales performance by 30%.",
+            "Utilized customer ratings and comments to conduct thorough analysis and formulated an improvement plan, resulting in enhanced product quality and customer satisfaction from average of 3.5 to 4.8 stars."
         ]
         tasks_markdown = "\n".join([f"- {task}" for task in tasks_list])
         st.markdown(tasks_markdown)
