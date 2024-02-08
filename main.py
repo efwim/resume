@@ -149,7 +149,7 @@ def home():
     st.divider()
     col1, col2 = st.columns([1, 1])
     with col1:
-        st.plotly_chart(mbti_plot(), use_column_width=True)
+        st.plotly_chart(mbti_plot(), use_container_width=True)
     with col2:
         st.image('image/istj.png', use_column_width=True)
 
