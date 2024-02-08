@@ -176,6 +176,7 @@ def work():
         st.markdown(tools_markdown)
     with col2:
         st.markdown("<h3 style='text-align: right'>Jan-Jun 2023</h3>", unsafe_allow_html=True)
+        st.markdown("<br>", unsafe_allow_html=True)
         st.image('image/tvs.jpg', use_column_width=True)
 
     st.divider()
@@ -203,6 +204,7 @@ def work():
         st.markdown(tools_markdown)
     with col2:
         st.markdown("<h3 style='text-align: right'>May-Aug 2022</h3>", unsafe_allow_html=True)
+        st.markdown("<br>", unsafe_allow_html=True)
         st.image('image/cottongood.jpg', use_column_width=True)
 
 def education():
