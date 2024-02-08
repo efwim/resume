@@ -147,8 +147,11 @@ def home():
     st.divider()
     st.plotly_chart(language_plot())
     st.divider()
-    st.plotly_chart(mbti_plot())
-    
+    col1, col2 = st.columns([1, 1])
+    with col1:
+        st.plotly_chart(mbti_plot())
+    with col2:
+        st.image('image/istj.png', use_column_width=True)
 
 def work():
     st.title("Work Experience")
