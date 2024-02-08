@@ -152,7 +152,7 @@ def home():
         st.plotly_chart(mbti_plot(), use_container_width=True)
     with col2:
         st.markdown("<br>", unsafe_allow_html=True)
-        st.image('image/istj.png', use_container_width=True)
+        st.image('image/istj.png', use_column_width=True)
 
 def work():
     st.title("Work Experience")
