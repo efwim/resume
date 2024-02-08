@@ -197,8 +197,7 @@ def work():
 
         st.markdown("#### Tools")
         tools_list = [
-            "Microsoft Excel",
-            "Python"
+            "Microsoft Excel"
         ]
         tools_markdown = "\n".join([f"- {tool}" for tool in tools_list])
         st.markdown(tools_markdown)
