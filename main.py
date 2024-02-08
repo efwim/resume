@@ -131,7 +131,7 @@ def mbti_plot():
 
 
 def home():
-    st.title("Greetings! I am Angel 😇")
+    st.title("Greetings! I am Angel")
     st.header("Explore my dashboard to get to know me")
     st.markdown("<h5 style='text-align: left'>🧭 Navigate through the pages using the sidebar.</h5>", unsafe_allow_html=True)
     st.markdown("<h5 style='text-align: left'>🎓 Expected to graduate in May 2024.</h5>", unsafe_allow_html=True)
