@@ -216,7 +216,7 @@ def education():
     st.subheader("Bachelor of Science (Hons) in Data Science and Artificial Intelligence")
     st.write("- Graduated in June 2024")
     st.write("- Minor in Modern Languages (Korean)")
-    st.write("- Skills:  Machine Learning,  Deep Learning,  Data Visualization,  Data Wrangling,  Statistical Analysis,  Data Scraping,  Data Querying,  Software Development,  Languages")
+    st.write("- Skills:  Machine Learning,  Deep Learning,  Data Visualization,  Data Wrangling,  Statistical Analysis,  Data Scraping,  Data Querying,  Software Development,  and more")
     st.divider()
     st.header("Projects")
     selected_tool = st.selectbox('Filter projects by tool used', ['Python', 'R', 'Dart', 'Others'], index=0)
@@ -304,10 +304,15 @@ def education():
         col1, col2 = st.columns([1, 1]) 
         with col1:
             st.markdown("#### 'Smartphone-based memory game using physical gestures'")
-            st.write("- **WORK IN PROGRESS**")
-            st.write("- Developing an engaging memory game application that incorporates efficient hand gesture recognition technology using Flutter and Media Pipe libraries")
+            st.write("- Featured on NTU College of Computing and Data Science [Technovation 2024](https://www.ntu.edu.sg/computing/news-events/news/technovation-2024) page")
+            st.write("- Developed a memory game application centered around gesturing, with a focus on gamifying memory training and enhancing user engagement.")
+            st.write("- Incorporated visual, auditory cues and hand gestures to reinforce memory recall through multiple senses, thereby providing a more comprehensive and effective cognitive exercise.")
+            st.write("- Integrated MediaPipe library for real-time hand recognition within a Flutter-based application.")
+            st.write("- Optimized algorithms to interpret gestures accurately during gameplay, enhancing user interaction and experience")
+            st.markdown("- Read Paper: [Click here](https://dr.ntu.edu.sg/handle/10356/174871)")
+            st.markdown("- Watch Video: [Click here](https://youtu.be/8VpbTkrRP94?si=vxpbMtep4KZfAB_q)")
         with col2:
-            st.image('image/fyp.jpg', use_column_width=True) 
+            st.image('image/fyp_rhythm.png', use_column_width=True) 
 
         st.divider()
 
@@ -317,10 +322,8 @@ def education():
             st.markdown("#### 'Software Application for Building the Smart Nation'")
             st.write("- **SmartRide** enables customers to efficiently compare prices and durations across various travel methods in Singapore.")
             st.write("- Developed an Android application using Flutter Dart, taking charge of both frontend and backend development.") 
-            st.write("- Implemented essential features such as integration with Firebase and Google Maps API")
-            st.write("- For **TAXI**, I obtained the driving distance from Google Maps and multiplied it by the distance and time-based unit fare obtained from LTA, added by the flag-down fare")
-            st.write("- For **PUBLIC TRANSPORT**, I obtained the direction from Google Maps. Direction could be segregated into categories: only bus, only MRT, both bus and MRT. For each category, I created different functions and calculated based on the unit fare provided by LTA")
-            st.write(" - I used Firebase for sign up, login, reset password, forget password features")
+            st.write("- For **TAXI**, I obtained the driving distance through Google Maps API and multiplied it by the distance and time-based unit fare obtained from LTA, added by the flag-down fare")
+            st.write("- For **PUBLIC TRANSPORT**, I obtained the direction through Google Maps API. Direction could be segregated into categories: only bus, only MRT, both bus and MRT. For each category, I created different functions and calculated based on the unit fare provided by LTA")
             st.markdown("- Watch Video: [Click here](https://youtu.be/2eASCKv2QmM)")
         with col2:
             st.image("image/cz2006.png", use_column_width=True)
@@ -377,13 +380,13 @@ def hobby():
     col1, col2 = st.columns([1, 1]) 
     with col1:
             st.write("- To lose the sense of taste, in my opinion, is among life's greatest losses")
-            st.markdown("- Started an Instagram food blog (@heaven_a_foodcoma) in 2023:\n\n[View my Instagram profile](https://instagram.com/heaven_a_foodcoma?igshid=NGVhN2U2NjQ0Yg==)")
-            st.markdown("- Achieved Google Local Guide Level 6 with contributions totaling over 700,000 views:\n\n[View my Google Maps contributions](https://goo.gl/maps/jBfGCdSTLu67BiwQ6)")
+            st.markdown("- Started an Instagram food blog ([@heaven_a_foodcoma](https://instagram.com/heaven_a_foodcoma?igshid=NGVhN2U2NjQ0Yg==)) in 2023")
+            st.markdown("- Achieved [Google Local Guide](https://goo.gl/maps/jBfGCdSTLu67BiwQ6) Level 6 with contributions totaling over 700,000 views")
     with col2:
             st.image('image/waffle.jpg', use_column_width=True, caption="Ree and Mummy at Katong V") 
     
     st.divider()
-    
+
     st.subheader("Crocheting and Puzzles")
     col1, col2 = st.columns([1, 1]) 
     with col1:
