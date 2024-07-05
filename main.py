@@ -53,9 +53,9 @@ def tools_plot():
     return fig
 
 def cgpa_plot():
-    years = ['Y1-S1', 'Y1-S2', 'Y2-S1', 'Y2-S2', 'Y3-S1', 'Y4-S1'] #, 'Y4-S2']
-    courses_taken = [4, 9, 7, 7, 8, 6] 
-    cgpa = [3.67, 4.12, 3.97, 4.06, 4.08, 4.14]    
+    years = ['Y1-S1', 'Y1-S2', 'Y2-S1', 'Y2-S2', 'Y3-S1', 'Y4-S1', 'Y4-S2']
+    courses_taken = [4, 9, 7, 7, 8, 6, 4] 
+    cgpa = [3.67, 4.12, 3.97, 4.06, 4.08, 4.14, 4.23]    
 
     fig = go.Figure()
 
@@ -134,8 +134,7 @@ def home():
     st.title("Greetings! I am Angel")
     st.header("Explore my dashboard to get to know me")
     st.markdown("<h5 style='text-align: left'>🧭 Navigate through the pages using the sidebar.</h5>", unsafe_allow_html=True)
-    st.markdown("<h5 style='text-align: left'>🎓 Expected to graduate in June 2024.</h5>", unsafe_allow_html=True)
-    st.markdown("<h5 style='text-align: left'>💼 Seeking a full-time position in data science or as a data analyst, with a desired start date by July 2024.</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: left'>🎓 Graduated in June 2024 with a Bachelor of Science (Hons).</h5>", unsafe_allow_html=True)
     st.markdown("<h5 style='text-align: left'>🪪 As an international candidate, I will require an Employment Pass to join the team.</h5>", unsafe_allow_html=True)
     st.divider()
     st.header("Here's a quick summary of me using data visualization plots")
@@ -214,9 +213,9 @@ def work():
 def education():
     st.title("Education")
     st.header("Nanyang Technological University, Singapore")
-    st.subheader("Bachelor of Science in Data Science and Artificial Intelligence")
-    st.write("- Direct honours programme with expected graduation in June 2024")
-    st.write("- Pursuing a Minor in Modern Languages")
+    st.subheader("Bachelor of Science (Hons) in Data Science and Artificial Intelligence")
+    st.write("- Graduated in June 2024")
+    st.write("- Minor in Modern Languages (Korean)")
     st.write("- Skills:  Machine Learning,  Deep Learning,  Data Visualization,  Data Wrangling,  Statistical Analysis,  Data Scraping,  Data Querying,  Software Development,  Languages")
     st.divider()
     st.header("Projects")
@@ -364,38 +363,34 @@ def hobby():
     col1, col2 = st.columns([1, 1]) 
     with col1:
             st.write("- Fluent in English and Bahasa Indonesia")
-            st.write("- Studied Chinese from Primary to Junior College where I achieved an A in Cambridge AS Level Chinese")
-            st.write("- Studying Korean as an elective in NTU. Achieved an A+ from Level 1 to 3. This semester I am studying Level 4")
-            st.write(f"- Studying Japanese with Duolingo, 🔥{get_streak()}")
-            st.write("- Took Thai Level 1 in Year 2 Semester 1 and got an \"A\"")
-            st.write("- Goal is to learn sign language and braille")
+            st.write("- Studied Chinese from Primary to Junior College where I achieved an \"A\" in Cambridge AS Level Chinese")
+            st.write("- Graduated with a Minor in Modern Languages, specifically for Korean")
+            st.write("- Obtained an \"A\" grade for Thai Level 1 in university")
+            st.write(f"- Studying Japanese with Duolingo with current streak at 🔥{get_streak()}")
+            st.write("- Life-long dream to achieve fluency in sign language and braille")
     with col2:
             st.image('image/language.jpg', use_column_width=True, caption='Me and my boyfriend with our Korean teacher') 
-
-    st.divider()
-
-    st.subheader("Crocheting and Puzzles")
-    col1, col2 = st.columns([1, 1]) 
-    with col1:
-            st.write("- Started crocheting in April 2023. So far I made: a turtle coaster, a clam, and a pink cat that looks like a pig😭")
-            st.write("- Frequently watch Kdramas, KVariety shows and anime")
-            st.write("- Enjoy building nano-block figures and puzzles, especially completing a 2000-piece puzzle and destroying it to rebuild it again 😝")
-    with col2:
-            st.image('image/crochet.jpg', use_column_width=True, caption="My turtle coaster") 
 
     st.divider()
 
     st.subheader("Food Blogging")
     col1, col2 = st.columns([1, 1]) 
     with col1:
-            st.write("- I love eating and I can eat a lot")
-            st.write("- The worst thing to lose in life is to lose your ability to taste")
-            st.markdown("- I started an Instagram food blog in April 2023: [Click here to visit my profile](https://instagram.com/heaven_a_foodcoma?igshid=NGVhN2U2NjQ0Yg==)")
-            st.write("- My favorite place for mala xiang guo is at JEM's Kopitiam")
-            st.write("- Best places for waffles is DOPA (soft waffle) or Ree and Mummy (crispy waffle)")
-            st.write("- No, this is not sponsored 🤭")
+            st.write("- To lose the sense of taste, in my opinion, is among life's greatest losses")
+            st.markdown("- Started an Instagram food blog (@heaven_a_foodcoma) in 2023:\n\n[View my Instagram profile](https://instagram.com/heaven_a_foodcoma?igshid=NGVhN2U2NjQ0Yg==)")
+            st.markdown("- Achieved Google Local Guide Level 6 with contributions totaling over 700,000 views:\n\n[View my Google Maps contributions](https://goo.gl/maps/jBfGCdSTLu67BiwQ6)")
     with col2:
             st.image('image/waffle.jpg', use_column_width=True, caption="Ree and Mummy at Katong V") 
+    
+    st.divider()
+    
+    st.subheader("Crocheting and Puzzles")
+    col1, col2 = st.columns([1, 1]) 
+    with col1:
+            st.write("- Began crocheting in April 2023 and have since crafted a variety of items, including a turtle coaster, clam plushie, and flower bouquet")
+            st.write("- Skilled in assembling nano-block figures and puzzles, with achievements including completing a 2000 piece puzzle")
+    with col2:
+            st.image('image/crochet.jpg', use_column_width=True, caption="My turtle coaster") 
 
 def main(): 
     st.sidebar.image('image/me.jpg', use_column_width=True)
