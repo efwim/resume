@@ -109,8 +109,8 @@ def language_plot():
 def mbti_plot():
     data = {
         'Category': ['Energy', 'Energy', 'Mind', 'Mind', 'Nature', 'Nature', 'Tactics', 'Tactics', 'Identity', 'Identity'],
-        'Subcategory': ['Extraverted', 'Introverted', 'Intuitive', 'Observant', 'Thinking', 'Feeling', 'Judging', 'Prospecting', 'Assertive', 'Turbulent'],
-        'Values': ['28%', '72%', '17%', '83%', '65%', '35%', '99%', '1%', '42%', '58%']
+        'Subcategory': ['Extraverted', 'Introverted', 'Intuitive', 'Observant', 'Feeling', 'Thinking', 'Prospecting', 'Judging', 'Assertive', 'Turbulent'],
+        'Values': ['28%', '72%', '17%', '83%', '35%', '65%', '1%', '99%', '42%', '58%']
     }
 
     df = pd.DataFrame(data)
@@ -120,7 +120,7 @@ def mbti_plot():
     fig = px.bar(df, x="Values", y="Category", color="Subcategory", orientation='h', text='Text', category_orders={"Category": category_order})
     fig.update_traces(textfont=dict(size=15))
     fig.update_layout(
-        title='My MBTI is Logistician ISTJ-T',
+        title='',
         modebar_remove=['lasso', 'select','toimage', 'pan'],
         title_font=dict(size=20),
         hovermode=False, 
@@ -148,10 +148,37 @@ def home():
     st.divider()
     col1, col2 = st.columns([1, 1])
     with col1:
-        st.plotly_chart(mbti_plot(), use_container_width=True)
+        st.markdown("#### Myers–Briggs Type Indicator (MBTI)")
+        st.write("My personality type, ISTJ-T, is known for being:")
+        istj_list = [
+            "Honest and Direct",
+            "Disciplined",
+            "Very Responsible",
+            "Calm and Practical",
+            "Organized and Effective",
+            "Research-Oriented"
+        ]
+        istj_markdown = "\n".join([f"- {istj}" for istj in istj_list])
+        st.markdown(istj_markdown)
+        st.markdown("[Click here](https://www.16personalities.com/istj-personality) to read more about ISTJs")
     with col2:
         st.markdown("<br>", unsafe_allow_html=True)
         st.image('image/istj.png', use_column_width=True)
+
+    st.markdown("##### Test results and interpretation")
+    col1, col2 = st.columns([1, 1])
+    with col1:
+        istj2_list = [
+            "**Introverted**: prefer fewer, yet deep and meaningful, social interactions and calmer environments.",
+            "**Observant**: pragmatic, down-to-earth, and have a strong focus on current and likely events.",
+            "**Thinking**: focus on objectivity and rationality, and may prioritize effectiveness over social harmony.",
+            "**Judging**: decisive, thorough, and highly organized. They value clarity, predictability, and closure, preferring structure and planning to spontaneity.",
+            "**Turbulent**: tend to be success-driven, perfectionistic, and eager to improve.",
+        ]
+        istj2_markdown = "\n".join([f"- {istj}" for istj in istj2_list])
+        st.markdown(istj2_markdown)
+    with col2:
+        st.plotly_chart(mbti_plot(), use_container_width=True)
 
 def work():
     st.title("Work Experience")
