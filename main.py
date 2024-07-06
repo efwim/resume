@@ -23,6 +23,7 @@ def company_plot():
 
     fig.update_layout(
         title="Internship Experience",
+        xaxis_title="Number of Months",
         modebar_remove=['lasso', 'select','toimage', 'pan'],
         height=500,
         font=dict(size=20), 
@@ -32,8 +33,8 @@ def company_plot():
     return fig
 
 def tools_plot():
-    tools = ["Python", "C/C++", "HTML/CSS/JavaScript/Java", "R", "SQL", "Dart"]
-    projects = [6, 1, 1, 2, 1, 2]
+    tools = ["Python", "C/C++", "Java", "R", "SQL", "Dart"]
+    projects = [10, 2, 1, 3, 1, 2]
 
     fig = go.Figure(go.Pie(
         labels=tools,
@@ -46,7 +47,7 @@ def tools_plot():
     )
     fig.update_layout(
         height=500,
-        title='Experience Based on Projects',
+        title='Project-Based Tool Experience Distribution',
         title_font=dict(size=20),
         showlegend=False
     )
@@ -140,7 +141,8 @@ def home():
     st.header("Here's a quick summary of me using data visualization plots")
     st.plotly_chart(company_plot())
     st.divider()
-    st.plotly_chart(tools_plot())
+    st.plotly_chart(tools_plot(), use_container_width=True)
+    st.write("This pie chart visualizes my experience with various tools based on the projects I completed during my university studies. Each segment represents the proportion of projects utilizing a specific tool, calculated by dividing the number of projects using that tool by the total number of projects completed.")
     st.divider()
     st.plotly_chart(cgpa_plot())
     st.divider()
@@ -243,10 +245,10 @@ def education():
     st.subheader("Bachelor of Science (Hons) in Data Science and Artificial Intelligence")
     st.write("- Graduated in June 2024")
     st.write("- Minor in Modern Languages (Korean)")
-    st.write("- Skills:  Machine Learning,  Deep Learning,  Data Visualization,  Data Wrangling,  Statistical Analysis,  Data Scraping,  Data Querying,  Software Development,  and more")
+    st.write("- **Skills:**   Machine Learning,  Deep Learning,  Data Visualization,  Data Wrangling,  Statistical Analysis,  Data Scraping,  Data Querying,  Software Development,  and more")
     st.divider()
     st.header("Projects")
-    selected_tool = st.selectbox('Filter projects by tool used', ['Python', 'R', 'Dart', 'Others'], index=0)
+    selected_tool = st.selectbox('Filter projects by tool used', ['Python', 'R', 'Dart', 'Others'], index=2)
     
     if selected_tool == 'Python':
         st.subheader("Data Visualization")
@@ -420,13 +422,13 @@ def hobby():
             st.write("- Began crocheting in April 2023 and have since crafted a variety of items, including a turtle coaster, clam plushie, and flower bouquet")
             st.write("- Skilled in assembling nano-block figures and puzzles, with achievements including completing a 2000 piece puzzle")
     with col2:
-            st.image('image/crochet.jpg', use_column_width=True, caption="My turtle coaster") 
+            st.image('image/crochet.jpg', use_column_width=True, caption="Turtle coaster") 
 
 def main(): 
     st.sidebar.image('image/me.jpg', use_column_width=True)
 
     st.sidebar.markdown("<h1 style='text-align: center'>Angelin Grace Wijaya</h1>", unsafe_allow_html=True)
-    st.sidebar.markdown("<p style='text-align: center'>A senior in Nanyang Technological University, pursuing a Bachelor's Degree in Data Science & Artificial Intelligence with a Minor in Modern Languages.</p>", unsafe_allow_html=True)
+    st.sidebar.markdown("<p style='text-align: center'>A recent graduate from Nanyang Technological University with a Bachelor of Science (Hons) in Data Science & Artificial Intelligence</p>", unsafe_allow_html=True)
 
     st.sidebar.markdown("""
     <div style="display: flex; justify-content: center;">
