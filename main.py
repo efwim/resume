@@ -428,7 +428,7 @@ def main():
     st.sidebar.image('image/me.jpg', use_column_width=True)
 
     st.sidebar.markdown("<h1 style='text-align: center'>Angelin Grace Wijaya</h1>", unsafe_allow_html=True)
-    st.sidebar.markdown("<p style='text-align: center'>A recent graduate from Nanyang Technological University with a Bachelor of Science (Hons) in Data Science & Artificial Intelligence</p>", unsafe_allow_html=True)
+    st.sidebar.markdown("<p style='text-align: center'>A graduate from Nanyang Technological University with a Bachelor of Science (Hons) in Data Science & Artificial Intelligence</p>", unsafe_allow_html=True)
 
     st.sidebar.markdown("""
     <div style="display: flex; justify-content: center;">
